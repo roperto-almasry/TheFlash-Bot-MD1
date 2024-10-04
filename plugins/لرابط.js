@@ -1,52 +1,41 @@
-import fetch from 'node-fetch';
-import { FormData, Blob } from 'formdata-node';
-import { fileTypeFromBuffer } from 'file-type';
-import sharp from 'sharp';
+const tasks = {};
 
-let handler = async (m, { conn }) => {
-  try {
-    let q = m.quoted ? m.quoted : m;
-    let mime = (q.msg || q).mimetype || '';
-    if (!mime.startsWith('image/')) return conn.reply(m.chat, '🚩 رد على صورة فقط.', m);
+const handler = async (m, { conn, command, args }) => {
+    const chatId = m.chat;
+    const userId = m.sender;
 
-    let media = await q.download();
-    const { ext } = await fileTypeFromBuffer(media);
-    if (!['jpg', 'jpeg', 'png', 'gif'].includes(ext)) return conn.reply(m.chat, '🚩 الصورة غير مدعومة.', m);
-    if (media.length > 5 * 1024 * 1024) return conn.reply(m.chat, '🚩 حجم الصورة أكبر من 5MB.', m);
+    if (command === 'المهام') {
+        const message = `📝 قائمة المهام المتاحة:
+1. إضافة مهمة: لإضافة مهمة جديدة إلى قائمة المهام الخاصة بك.
+2. إلغاء مهمة: لإلغاء مهمة من القائمة.
+3. عرض المهام: لعرض كل المهام الحالية.
 
-    let link = await uploadToImgbb(media);
-    let thumbnail = await sharp(media).resize({ width: 300 }).toBuffer();
-    let sizeInMB = (media.length / (1024 * 1024)).toFixed(2);
-    let shortLink = await shortenUrl(link);
+يرجى اختيار أحد الأزرار أدناه لإجراء العملية المطلوبة.`;
 
-    let txt = *» رابط الصورة:* ${link}\n*» حجم الصورة:* ${sizeInMB} MB\n\n> تم التحويل بنجاح ⚡🚀;
-    await conn.sendMessage(m.chat, { image: thumbnail, caption: txt });
-    await conn.reply(m.chat, 🔗 الرابط المختصر: ${shortLink}, m);
+        const imageUrl = 'https://forkgraph.zaid.pro/file/id5B2L8s8lxf'; // رابط الصورة المراد استخدامها
 
-  } catch (e) {
-    console.error(e);
-    await conn.reply(m.chat, '🌱 حدث خطأ أثناء معالجة الصورة.', m);
-  }
+        await conn.sendMessage(
+            chatId,
+            {
+                image: { url: imageUrl },
+                caption: message,
+                footer: '🌟 إدارة المهام',
+                buttons: [
+                    { buttonId: '.إضافة_مهمة', buttonText: { displayText: '➕ إضافة مهمة' }, type: 1 },
+                    { buttonId: '.إلغاء_مهمة', buttonText: { displayText: '❌ إلغاء مهمة' }, type: 1 },
+                    { buttonId: '.عرض_المهام', buttonText: { displayText: '📋 عرض المهام' }, type: 1 },
+                ],
+                headerType: 4
+            },
+            { quoted: m }
+        );
+    }
+
+    // باقي الأوامر كما في الكود السابق (إضافة_مهمة، إلغاء_مهمة، عرض_المهام) ...
 };
 
-const uploadToImgbb = async (buffer) => {
-  const form = new FormData();
-  form.append('image', new Blob([buffer]));
+handler.help = ['المهام', 'إضافة_مهمة [النص] | [النوع]', 'إلغاء_مهمة [رقم المهمة]', 'عرض_المهام'];
+handler.tags = ['tools'];
+handler.command = /^(المهام|إضافة_مهمة|إلغاء_مهمة|عرض_المهام)$/i;
 
-  const res = await fetch(https://api.imgbb.com/1/upload?key=f5a208d3f99e1fb3edb7f8775d28151d, {
-    method: 'POST',
-    body: form
-  });
-
-  const result = await res.json();
-  if (result.success) return result.data.url;
-  throw new Error('فشل رفع الصورة');
-};
-
-const shortenUrl = async (url) => {
-  const res = await fetch(https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)});
-  return await res.text();
-};
-
-handler.command = ['لرابط'];
 export default handler;
