@@ -4,16 +4,16 @@ const handler = async (m, { conn, command, args }) => {
     const chatId = m.chat;
     const userId = m.sender;
 
-    // معالجة الأمر "تذكير"
+    // معالجة الأمر "تذكير" لإظهار الشرح
     if (command === 'تذكير') {
         const tutorialMessage = `
         ⚠️ **كيفية استخدام الأمر تذكير:**
         يمكنك استخدام هذا الأمر لإعداد تذكير لنفسك. 
         المثال: 
-        \`.تذكير نص التذكير | الوقت بالدقائق\`
+        \`.تذكير_إضافة نص التذكير | الوقت بالدقائق\`
         
         على سبيل المثال:
-        \`.تذكير اشرب ماء | 30\`  (هذا يعني تذكيرك بشرب الماء بعد 30 دقيقة)
+        \`.تذكير_إضافة اشرب ماء | 30\`  (هذا يعني تذكيرك بشرب الماء بعد 30 دقيقة)
         `;
         
         // إرسال الرسالة مع زر لإضافة التذكير
@@ -21,13 +21,14 @@ const handler = async (m, { conn, command, args }) => {
             ['إضافة تذكير ⏰', '.تذكير_إضافة']
         ], m);
     } 
-    // معالجة الأمر "تذكير_إضافة"
+    // معالجة الأمر "تذكير_إضافة" لإضافة التذكير
     else if (command === 'تذكير_إضافة') {
-        const reminderText = args[0] ? args[0].trim() : null;
-        const reminderTime = args[1] ? parseInt(args[1].trim()) : null;
+        const commandArgs = args.join(' ').split('|');
+        const reminderText = commandArgs[0] ? commandArgs[0].trim() : null;
+        const reminderTime = commandArgs[1] ? parseInt(commandArgs[1].trim()) : null;
 
         if (!reminderText || !reminderTime || isNaN(reminderTime)) {
-            return await conn.reply(chatId, "يرجى تحديد نص التذكير ووقت التذكير بالدقائق. مثال: .تذكير اشرب ماء | 30", m);
+            return await conn.reply(chatId, "يرجى تحديد نص التذكير ووقت التذكير بالدقائق. مثال: .تذكير_إضافة اشرب ماء | 30", m);
         }
 
         const reminderId = `${chatId}-${Date.now()}`;
