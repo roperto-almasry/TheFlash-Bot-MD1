@@ -4,8 +4,8 @@ const handler = async (m, { conn, command, args }) => {
     const chatId = m.chat;
     const userId = m.sender;
 
+    // معالجة الأمر "تذكير"
     if (command === 'تذكير') {
-        // رسالة تعليمية حول كيفية استخدام الأمر
         const tutorialMessage = `
         ⚠️ **كيفية استخدام الأمر تذكير:**
         يمكنك استخدام هذا الأمر لإعداد تذكير لنفسك. 
@@ -16,13 +16,13 @@ const handler = async (m, { conn, command, args }) => {
         \`.تذكير اشرب ماء | 30\`  (هذا يعني تذكيرك بشرب الماء بعد 30 دقيقة)
         `;
         
-        // إرسال الرسالة مع الأزرار
+        // إرسال الرسالة مع زر لإضافة التذكير
         await conn.sendButton(chatId, tutorialMessage, null, null, [
-            ['إضافة تذكير ⏰', '.تذكير_إضافة'],
-            ['مساعدة ❓', '.تذكير']
+            ['إضافة تذكير ⏰', '.تذكير_إضافة']
         ], m);
-
-    } else if (command === 'تذكير_إضافة') {
+    } 
+    // معالجة الأمر "تذكير_إضافة"
+    else if (command === 'تذكير_إضافة') {
         const reminderText = args[0] ? args[0].trim() : null;
         const reminderTime = args[1] ? parseInt(args[1].trim()) : null;
 
@@ -46,14 +46,13 @@ const handler = async (m, { conn, command, args }) => {
         setTimeout(async () => {
             const reminder = reminders[reminderId];
             if (reminder) {
-                await conn.sendButton(reminder.chatId, `🔔 @${reminder.userId.split('@')[0]}، تذكير: ${reminder.text}`, null, null, [
-                    ['تذكير جديد ⏰', `.تذكير`],
-                    ['إلغاء التذكير ❌', `.إلغاء_التذكير ${reminderId}`]
-                ], { mentions: [reminder.userId], quoted: m });
+                await conn.sendMessage(reminder.chatId, { text: `🔔 @${reminder.userId.split('@')[0]}، تذكير: ${reminder.text}`, mentions: [reminder.userId] }, { quoted: m });
                 delete reminders[reminderId];
             }
         }, reminderTime * 60000);
-    } else if (command === 'إلغاء_التذكير') {
+    } 
+    // معالجة الأمر "إلغاء_التذكير"
+    else if (command === 'إلغاء_التذكير') {
         const reminderId = args[0];
         if (reminders[reminderId]) {
             delete reminders[reminderId];
