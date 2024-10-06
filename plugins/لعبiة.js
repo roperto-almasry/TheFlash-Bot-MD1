@@ -16,36 +16,41 @@ const questions = [
     }
 ];
 
-const handler = async (m, { conn }) => {
+const handler = async (m, { conn, command }) => {
     const chatId = m.chat;
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 
-    const message = `❓ ${randomQuestion.question}`;
+    // إذا كان الأمر هو "لعبة"
+    if (command === 'لعبة') {
+        const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+        const message = `❓ ${randomQuestion.question}`;
 
-    await conn.sendButton(
-        chatId,
-        message,
-        '🧠 اختر الإجابة الصحيحة',
-        null,
-        randomQuestion.options.map((option, index) => [option, `.إجابة ${index}`]),
-        m
-    );
+        await conn.sendButton(
+            chatId,
+            message,
+            '🧠 اختر الإجابة الصحيحة',
+            null,
+            randomQuestion.options.map((option, index) => [option, `.إجابة ${index}`]),
+            m
+        );
 
-    conn.on('text', (msg) => {
-        if (msg.body.startsWith('.إجابة ')) {
-            const userAnswer = parseInt(msg.body.split(' ')[1]);
-            if (userAnswer === randomQuestion.answer) {
-                conn.reply(chatId, "🎉 تهانينا! إجابتك صحيحة!", m);
-            } else {
-                conn.reply(chatId, "❌ إجابتك خاطئة. حاول مرة أخرى!", m);
+        // هنا ننتظر من المستخدم الإجابة على السؤال
+        conn.once('chat-update', async (chatUpdate) => {
+            if (chatUpdate.messages && chatUpdate.messages.all()) {
+                const msg = chatUpdate.messages.all()[0];
+                if (msg.message && msg.message.text.startsWith('.إجابة ')) {
+                    const userAnswer = parseInt(msg.message.text.split(' ')[1]);
+                    if (userAnswer === randomQuestion.answer) {
+                        await conn.reply(chatId, "🎉 تهانينا! إجابتك صحيحة!", msg);
+                    } else {
+                        await conn.reply(chatId, "❌ إجابتك خاطئة. حاول مرة أخرى!", msg);
+                    }
+                }
             }
-            // قم بإلغاء الاستماع بعد الإجابة
-            conn.removeListener('text', this);
-        }
-    });
+        });
+    }
 };
 
-handler.help = ['لعبة', 'إجابة [رقم]'];
+handler.help = ['لعبة'];
 handler.tags = ['fun'];
 handler.command = /^(لعبة)$/i;
 
