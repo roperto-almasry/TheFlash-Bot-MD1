@@ -2,7 +2,7 @@ const handler = async (m, { conn, command }) => {
     const chatId = m.chat;
 
     // صورة توضيحية للعبة
-    const gameImage = 'https://example.com/path/to/your/image.jpg'; // ضع رابط الصورة هنا
+    const gameImage = 'https://images.app.goo.gl/H5ZeWiXw2pPbe4zAA'; // ضع رابط الصورة هنا
 
     // إذا كان الأمر هو "صخر"
     if (command === 'صخر') {
