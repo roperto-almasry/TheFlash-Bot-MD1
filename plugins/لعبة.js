@@ -2,7 +2,7 @@ const handler = async (m, { conn, command }) => {
     const chatId = m.chat;
 
     // صورة توضيحية للعبة
-    const gameImage = 'https://images.app.goo.gl/H5ZeWiXw2pPbe4zAA'; // ضع رابط الصورة هنا
+    const gameImage = 'https://ibb.co/CzvbTTs'; // ضع رابط الصورة هنا
 
     // إذا كان الأمر هو "صخر"
     if (command === 'صخر') {
@@ -23,7 +23,7 @@ const handler = async (m, { conn, command }) => {
     }
 
     // إضافة معالجات للأزرار
-    if (m.text.includes('.اختيار')) {
+    if (m.text.startsWith('.اختيار')) {
         const userChoice = m.text.split(' ')[1]; // الحصول على الخيار المختار
         const botChoice = ['حجر', 'ورقة', 'مقص'][Math.floor(Math.random() * 3)]; // اختيار عشوائي للروبوت
 
@@ -49,5 +49,5 @@ const handler = async (m, { conn, command }) => {
 };
 
 // إضافة الأوامر المتاحة
-handler.command = ['صخر'];
+handler.command = ['صخر', 'اختيار']; // تأكد من إضافة الأمر "اختيار"
 export default handler;
