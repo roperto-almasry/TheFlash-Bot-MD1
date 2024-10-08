@@ -1,38 +1,61 @@
-import translate from '@vitalets/google-translate-api'
-const defaultLang = 'ar'
-const tld = 'cn'
+const fetch = require('node-fetch');
 
-let handler = async (m, { args, usedPrefix, command }) => {
-    let err = `
-╮ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ╭ـ
-˼🤖˹┆ الـاسـم┆⌟𝐅𝐋𝐀𝐒𝐇⌜
-˼🤖˹┆ مثال┆⌟ .ترجم hello pro⌜
-╯ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ╰ـ
-> ˼👻˹ مــلـاحـــظـــة ⇅ ↶
-╮ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ╭ـ
-> تابع قناة البوت يا برو 👽👇🏻
-https://whatsapp.com/channel/0029VaoUBmSKmCPIIiEatx1H
-╯ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ── ⋆⋆ ╰ـ
-> 𝐅𝐋𝐀𝐒𝐇﹝⚡﹞𝐁𝐎𝐓 © 𝐁𝐘 𝐍𝐀𝐑𝐔𝐓𝐎&𝐙𝐀𝐂𝐊`.trim()
+const handler = async (m, { conn, command, args }) => {
+    const chatId = m.chat;
+    const userText = args.join(' ');
 
-    let lang = args[0]
-    let text = args.slice(1).join(' ')
-    if ((args[0] || '').length !== 2) {
-        lang = defaultLang
-        text = args.join(' ')
+    if (!userText) {
+        return await conn.reply(chatId, '📝 يرجى كتابة النص الذي تريد ترجمته.', m);
     }
-    if (!text && m.quoted && m.quoted.text) text = m.quoted.text
 
-    try {
-       let result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
-       m.reply(result.text)
-    } catch (e) {
-        throw err
-    } 
+    const languageButtons = [
+        [{ buttonText: { displayText: '🇬🇧 الإنجليزية' }, buttonId: 'en' }],
+        [{ buttonText: { displayText: '🇫🇷 الفرنسية' }, buttonId: 'fr' }],
+        [{ buttonText: { displayText: '🇪🇸 الإسبانية' }, buttonId: 'es' }],
+    ];
 
-}
-handler.help = ['trad <leng> <text>']
-handler.tags = ['tools']
-handler.command = ['tl', 'ترجم']
+    const message = '🌍 اختر اللغة التي تريد الترجمة إليها:';
 
-export default handler
+    await conn.sendMessage(chatId, {
+        text: message,
+        buttons: languageButtons,
+        headerType: 1
+    }, m);
+
+    conn.on('message', async (buttonResponse) => {
+        const languageCode = buttonResponse.text;
+        if (['en', 'fr', 'es'].includes(languageCode)) {
+            try {
+                const translatedText = await translateText(userText, languageCode);
+                const resultMessage = ✅ النص المترجم:\n\n"${translatedText}";
+
+                await conn.reply(chatId, resultMessage, m);
+            } catch (error) {
+                await conn.reply(chatId, '❌ حدث خطأ أثناء الترجمة.', m);
+            }
+        } else {
+            await conn.reply(chatId, '⚠ اختر لغة صحيحة من الأزرار.', m);
+        }
+    });
+};
+
+// وظيفة الترجمة باستخدام LibreTranslate API (لا تحتاج مفتاح API)
+const translateText = async (text, targetLang) => {
+    const apiUrl = 'https://libretranslate.com/translate';
+    
+    const response = await fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({
+            q: text,
+            source: 'auto', // الكشف التلقائي عن اللغة الأصلية
+            target: targetLang,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    
+    const data = await response.json();
+    return data.translatedText;
+};
+
+handler.command = ['ترجمة'];
+export default handler;
