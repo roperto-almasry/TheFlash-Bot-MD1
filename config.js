@@ -90,11 +90,11 @@ xcoders : 'https://api-xcoders.site'
 },
    
 global.APIKeys = { 
-'https://api.xteam.xyz': `${keysxteam}`,
-'https://api.lolhuman.xyz': `${lolkeysapi}`,
-'https://api.neoxr.my.id': `${keysneoxr}`,	
+'https://api.xteam.xyz': ${keysxteam},
+'https://api.lolhuman.xyz': ${lolkeysapi},
+'https://api.neoxr.my.id': ${keysneoxr},	
 'https://violetics.pw': 'beta',
-'https://api.zahwazein.xyz': `${keysxxx}`,
+'https://api.zahwazein.xyz': ${keysxxx},
 'https://api.fgmods.xyz': 'DRLg5kY7', 
 'https://api-fgmods.ddns.net': 'fg-dylux',
 'https://api.botcahx.biz.id': 'Admin',
@@ -117,9 +117,9 @@ global.moment = moment
 // [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
 // [EN] > Adding yourself, collaborators or helpers will appear in the contact list command.
 global.official = [ // Agregate si eres Owner
-["201067684684", '👑 Flash - Zack 👑', 1], 
-["201067684684", '💫 Flash - Naruto 💫', 1],  
-["2010676846846", '👑 Flash - Zack 👑', 1]]
+["201067684684", '👑 Mr-Mohamed 👑', 1], 
+["201067684684", '💫 Mr-Mohamed 💫', 1],  
+["2010676846846", '👑 Mr-Mohamed 👑', 1]]
 
 global.mail = '' // Add email
 global.desc = '' // Add short description (20 caractres max)
@@ -127,8 +127,8 @@ global.desc2 = '' // Add long description (90 caractres max) (Este parámetro se
 global.country = '' // Add country, example: 🇪🇨
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
-global.packname = `𝐅𝐋𝐀𝐒𝐇﹝⚡️﹞𝐁𝐎𝐓` //"𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈"
-global.author = `Naruto & Zack` //"𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
+global.packname = ঌ͜͡ꜱㅤDemonㅤ모 //"𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 🐈"
+global.author = Mr-Mohamed //"𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // [ES] > INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
@@ -136,36 +136,36 @@ global.author = `Naruto & Zack` //"𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨"
 // [EN] > BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
 global.vs = "1.7.0"
 global.vsJB = "3.0 (Beta)"
-global.gt = "Naruto & Zack"
+global.gt = "Mr-Mohamed"
 
 fetchDataAndProcess().catch(error => console.error('Ocurrió un error:', error))
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
-global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
+global.rg = '╰⊱✅⊱ 𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏 ⊱✅⊱╮\n\n'
 global.resultado = rg
 
-global.ag = '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n'
+global.ag = '╰⊱⚠⊱ 𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂 ⊱⚠⊱╮\n\n'
 global.advertencia = ag
 
-global.iig = '╰⊱❕⊱ *𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊́𝙉 | 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉* ⊱⊱╮\n\n'
+global.iig = '╰⊱❕⊱ 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊́𝙉 | 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 ⊱⊱╮\n\n'
 global.informacion = iig
 
-global.fg = '╰⊱❌⊱ *𝙁𝘼𝙇𝙇𝙊́ | 𝙀𝙍𝙍𝙊𝙍* ⊱❌⊱╮\n\n'
+global.fg = '╰⊱❌⊱ 𝙁𝘼𝙇𝙇𝙊́ | 𝙀𝙍𝙍𝙊𝙍 ⊱❌⊱╮\n\n'
 global.fallo = fg
 
-global.mg = '╰⊱❗️⊱ *𝙇𝙊 𝙐𝙎𝙊́ 𝙈𝘼𝙇 | 𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂* ⊱❗️⊱╮\n\n'
+global.mg = '╰⊱❗⊱ 𝙇𝙊 𝙐𝙎𝙊́ 𝙈𝘼𝙇 | 𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂 ⊱❗⊱╮\n\n'
 global.mal = mg
 
-global.eeg = '╰⊱📩⊱ *𝙍𝙀𝙋𝙊𝙍𝙏𝙀 | 𝙍𝙀𝙋𝙊𝙍𝙏* ⊱📩⊱╮\n\n'
+global.eeg = '╰⊱📩⊱ 𝙍𝙀𝙋𝙊𝙍𝙏𝙀 | 𝙍𝙀𝙋𝙊𝙍𝙏 ⊱📩⊱╮\n\n'
 global.envio = eeg
 
-global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮\n\n'
+global.eg = '╰⊱💚⊱ 𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎 ⊱💚⊱╮\n\n'
 global.exito = eg
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-global.wm = "𝐅𝐋𝐀𝐒𝐇﹝⚡️﹞𝐁𝐎𝐓"
-global.igfg = "Naruto & Zack"
+global.wm = "ঌ͜͡ꜱㅤDemonㅤ모"
+global.igfg = "Mr-Mohamed"
 global.nomorown = "972546887176"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
@@ -184,27 +184,27 @@ global.cmenub = "┊✦ "
 global.cmenuf = "╰━═┅═━––––––๑\n"
 global.cmenua = "\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     "
  
-global.dmenut = "*❖─┅──┅〈*"
-global.dmenub = "*┊»*"
-global.dmenub2 = "*┊*"
-global.dmenuf = "*╰┅────────┅✦*"
+global.dmenut = "❖─┅──┅〈"
+global.dmenub = "┊»"
+global.dmenub2 = "┊"
+global.dmenuf = "╰┅────────┅✦"
 global.htjava = "⫹⫺"
 
-global.htki = "*⭑•̩̩͙⊱•••• ☪*"
-global.htka = "*☪ ••••̩̩͙⊰•⭑*"
+global.htki = "⭑•̩̩͙⊱•••• ☪"
+global.htka = "☪ ••••̩̩͙⊰•⭑"
 
 global.comienzo = "• • ◕◕════"
 global.fin = " • •"
 
-global.botdate = `⫹⫺ Date :  ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}`; //Asia/Jakarta
-global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('America/Los_Angeles').format('HH:mm:ss')}`;//America/Los_Angeles
+global.botdate = ⫹⫺ Date :  ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}; //Asia/Jakarta
+global.bottime = 𝗧 𝗜 𝗠 𝗘 : ${moment.tz('America/Los_Angeles').format('HH:mm:ss')};//America/Los_Angeles
 global.fgif = {
 key: {
 participant : '0@s.whatsapp.net'},
 message: { 
 "videoMessage": { 
 "title": wm,
-"h": `Hmm`,
+"h": Hmm,
 'seconds': '999999999', 
 'gifPlayback': 'true', 
 'caption': bottime,
@@ -224,13 +224,13 @@ let emot = {
       exp: lenguajeGB.eExp(),
       bank: '🏦 Banco : Bank',
       diamond: lenguajeGB.eDiamantePlus(),
-      health: '❤️ Salud : Health',
+      health: '❤ Salud : Health',
       kyubi: lenguajeGB.eMagia(),
       joincount: lenguajeGB.eToken(),
       emerald: lenguajeGB.eEsmeralda(),
       stamina: lenguajeGB.eEnergia(),
       role: '💪 Rango | Role',
-      premium: '🎟️ Premium',
+      premium: '🎟 Premium',
       pointxp: '📧 Puntos Exp : Point Xp',
       gold: lenguajeGB.eOro(),
       
@@ -239,14 +239,14 @@ let emot = {
       intelligence: '🧠 Inteligencia : Intelligence',
       string: lenguajeGB.eCuerda(),
       keygold: '🔑 Llave de Oro : Key Gold',
-      keyiron: '🗝️ Llave de Hierro : Key Iron',
+      keyiron: '🗝 Llave de Hierro : Key Iron',
       emas: lenguajeGB.ePinata(),
       fishingrod: '🎣 Caña de Pescar : Fishing Rod',
       gems: '🍀 Gemas : Gemas',
-      magicwand: '⚕️ Varita Mágica : Magic Wand',
+      magicwand: '⚕ Varita Mágica : Magic Wand',
       mana: '🪄 Hechizo : Spell',
-      agility: '🤸‍♂️ Agilidad : Agility',
-      darkcrystal: '♠️ Cristal Oscuro : Dark Glass',
+      agility: '🤸‍♂ Agilidad : Agility',
+      darkcrystal: '♠ Cristal Oscuro : Dark Glass',
       iron: lenguajeGB.eHierro(),
       rock: lenguajeGB.eRoca(),
       potion: lenguajeGB.ePocion(),
@@ -255,11 +255,11 @@ let emot = {
       upgrader: '🧰 Aumentar Mejora : Upgrade',
       wood: lenguajeGB.eMadera(),
       
-      strength: '🦹‍ ♀️ Fuerza : Strength',
+      strength: '🦹‍ ♀ Fuerza : Strength',
       arc: '🏹 Arco : Arc',
       armor: '🥼 Armadura : Armor',
       bow: '🏹 Super Arco : Super Bow',
-      pickaxe: '⛏️ Pico : Peak',
+      pickaxe: '⛏ Pico : Peak',
       sword: lenguajeGB.eEspada(),
       
       common: lenguajeGB.eCComun(),
@@ -294,7 +294,7 @@ let emot = {
       monyet: '🐒 Mono : Monkey',
       panda: '🐼 Panda',
       snake: '🐍 Serpiente : Snake',
-      phonix: '🕊️ Fénix : Phoenix',
+      phonix: '🕊 Fénix : Phoenix',
       rhinoceros: '🦏 Rinoceronte : Rhinoceros',
       wolf: lenguajeGB.eLobo(),
       tiger: '🐅 Tigre : Tiger',
@@ -316,18 +316,18 @@ emoticon(string) {
 string = string.toLowerCase();
 let emott = {
       level: '🧬', limit: '💎', exp: '⚡', bank: '🏦',
-      diamond: '💎+', health: '❤️', kyubi: '🌀', joincount: '🪙',
-      emerald: '💚', stamina: '✨', role: '💪', premium: '🎟️',
+      diamond: '💎+', health: '❤', kyubi: '🌀', joincount: '🪙',
+      emerald: '💚', stamina: '✨', role: '💪', premium: '🎟',
       pointxp: '📧', gold: '👑',
       
-      trash: '🗑', crystal: '🔮', intelligence: '🧠', string: '🕸️', keygold: '🔑',
-      keyiron: '🗝️', emas: '🪅', fishingrod: '🎣', gems: '🍀', magicwand: '⚕️',
-      mana: '🪄', agility: '🤸‍♂️', darkcrystal: '♠️', iron: '⛓️', rock: '🪨',
+      trash: '🗑', crystal: '🔮', intelligence: '🧠', string: '🕸', keygold: '🔑',
+      keyiron: '🗝', emas: '🪅', fishingrod: '🎣', gems: '🍀', magicwand: '⚕',
+      mana: '🪄', agility: '🤸‍♂', darkcrystal: '♠', iron: '⛓', rock: '🪨',
       potion: '🥤', superior: '💼', robo: '🚔', upgrader: '🧰', wood: '🪵',
       
-      strength: '🦹‍ ♀️', arc: '🏹', armor: '🥼', bow: '🏹', pickaxe: '⛏️', sword: '⚔️',
+      strength: '🦹‍ ♀', arc: '🏹', armor: '🥼', bow: '🏹', pickaxe: '⛏', sword: '⚔',
       
-      common: '📦', uncoommon: '🥡', mythic: '🗳️', legendary: '🎁', petFood: '🍖', pet: '🍱',
+      common: '📦', uncoommon: '🥡', mythic: '🗳', legendary: '🎁', petFood: '🍖', pet: '🍱',
       
       bibitanggur: '🍇', bibitapel: '🍎', bibitjeruk: '🍊', bibitmangga: '🥭', bibitpisang: '🍌',
       
@@ -335,7 +335,7 @@ let emott = {
       centaur: '🐐', chicken: '🐓', cow: '🐄', dog: '🐕', dragon: '🐉', elephant: '🐘',
       fox: '🦊', giraffe: '🦒', griffin: '🦅', //Mascota : Griffin',
       horse: '🐎', kambing: '🐐', kerbau: '🐃', lion: '🦁', money: '🐱', monyet: '🐒', panda: '🐼',
-      snake: '🐍', phonix: '🕊️', rhinoceros: '🦏',
+      snake: '🐍', phonix: '🕊', rhinoceros: '🦏',
       wolf: '🐺', tiger: '🐅', cumi: '🦑', udang: '🦐', ikan: '🐟',
       
       fideos: '🍝', ramuan: '🧪', knife: '🔪'
@@ -389,19 +389,19 @@ emoticon(string) {
 string = string.toLowerCase();
 let emotttt = {
       exp: '⚡', limit: '💎', diamond: '💎+', joincount: '🪙',
-      emerald: '💚', berlian: '♦️', kyubi: '🌀', gold: '👑',
+      emerald: '💚', berlian: '♦', kyubi: '🌀', gold: '👑',
       money: '🐱', tiketcoin: '🎫', stamina: '✨',
             
       potion: '🥤', aqua: '💧', trash: '🗑', wood: '🪵',
-      rock: '🪨', batu: '🥌', string: '🕸️', iron: '⛓️',
-      coal: '⚱️', botol: '🍶', kaleng: '🥫', kardus: '🪧',
+      rock: '🪨', batu: '🥌', string: '🕸', iron: '⛓',
+      coal: '⚱', botol: '🍶', kaleng: '🥫', kardus: '🪧',
       
-      eleksirb: '💡', emasbatang: '〽️', emasbiasa: '🧭', rubah: '🦊🌫️',
-      sampah: '🗑🌫️', serigala: '🐺🌫️', kayu: '🛷', sword: '⚔️',
+      eleksirb: '💡', emasbatang: '〽', emasbiasa: '🧭', rubah: '🦊🌫',
+      sampah: '🗑🌫', serigala: '🐺🌫', kayu: '🛷', sword: '⚔',
       umpan: '🪱', healtmonster: '💵', emas: '🪅', pancingan: '🪝',
       pancing: '🎣',
        
-      common: '📦', uncoommon: '🥡', mythic: '🗳️',
+      common: '📦', uncoommon: '🥡', mythic: '🗳',
       pet: '📫',//?
       gardenboxs: '💐',//?
       legendary: '🎁',
@@ -410,11 +410,11 @@ let emotttt = {
       
       bibitanggur: '🌾🍇', bibitapel: '🌾🍎', bibitjeruk: '🌾🍊', bibitmangga: '🌾🥭', bibitpisang: '🌾🍌',
       
-      centaur: '🐐', griffin: '🦅', kucing: '🐈', naga: '🐉', fox: '🦊', kuda: '🐎', phonix: '🕊️', wolf: '🐺', anjing: '🐶',
+      centaur: '🐐', griffin: '🦅', kucing: '🐈', naga: '🐉', fox: '🦊', kuda: '🐎', phonix: '🕊', wolf: '🐺', anjing: '🐶',
        
       petFood: '🍖', //?
       makanancentaur: '🐐🥩', makanangriffin: '🦅🥩', makanankyubi: '🌀🥩', makanannaga: '🐉🥩',
-      makananpet: '🍱🥩', makananphonix: '🕊️🥩'  
+      makananpet: '🍱🥩', makananphonix: '🕊🥩'  
 }
 let results = Object.keys(emotttt).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string));
 if (!results.length) return '';
@@ -426,7 +426,7 @@ let file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
 unwatchFile(file);
 console.log(chalk.redBright("Update 'config.js'"));
-import(`${file}?update=${Date.now()}`);
+import(${file}?update=${Date.now()});
 })
 
 async function fetchDataAndProcess() {
